@@ -12,7 +12,7 @@ SoftBank Hackathon 2026 in Korea 예선 (Term 1) · Team Daisy
 | 웹 대시보드 | https://www.unibloom.cloud |
 | API (개발 서버) | https://api.unibloom.cloud · 문서 `/v3/api-docs`, `/swagger-ui.html` |
 | Mac 앱 (공증된 DMG) | [Unibloom.dmg 내려받기](https://github.com/Softbank-Hackathon-2026-Team-Daisy/unibloom/releases/download/mac-latest/Unibloom.dmg) · macOS 15 이상 |
-| iPhone 앱 (TestFlight) | https://testflight.apple.com/join/wF5sjQPG · 베타 심사 통과 뒤 열려요 |
+| iPhone 앱 (TestFlight) | [TestFlight로 설치](https://testflight.apple.com/join/wF5sjQPG) · 공개 링크로 바로 설치돼요 (iOS 18 이상) |
 | Unibloom으로 배포한 샘플 앱 (HelloCalc) | [온프레미스](https://onprem.unibloom.cloud) · [AWS](https://aws.unibloom.cloud) · [GCP](https://gcp.unibloom.cloud) · [Azure](https://azure.unibloom.cloud) — 네 곳 모두 `/version`이 같은 커밋을 돌려줘요 |
 
 웹 · 앱 모두 **한국어 · English · 日本語**를 지원해요 (웹: 설정 · 로그인 화면, 앱: 설정 › 언어. 기본값은 브라우저 · 기기 언어).
