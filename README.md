@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/readme/banner.webp" width="100%" alt="Unibloom — 한 번 정의하고, 어디서든 피우다 · AWS · Azure · Google Cloud · 온프레미스" /></p>
+
 # Unibloom — 한 번 정의하고, 어디서든 피우다
 
 **AI 기반 온프레미스 · 퍼블릭 클라우드 원터치 배포 시스템**
@@ -21,6 +23,11 @@ SoftBank Hackathon 2026 in Korea 예선 (Term 1) · Team Daisy
 
 ## 어떻게 동작하나요
 
+<p align="center"><img src="docs/readme/architecture.svg" width="100%" alt="Unibloom 시스템 구성 — 웹 · 앱, Spring Boot 서버, Jenkins(daisy-ci · daisy-cd-plan · daisy-cd-apply), Claude API, 4개 배포 환경" /></p>
+
+<details>
+<summary>요청 흐름 (Mermaid)</summary>
+
 ```mermaid
 flowchart LR
     dev[개발자<br/>main merge] --> ci[Jenkins daisy-ci<br/>테스트 · 이미지 빌드<br/>태그 = 커밋 해시]
@@ -36,6 +43,8 @@ flowchart LR
     apply --> azure[Azure<br/>Container Apps]
     apply -->|결과 콜백| api
 ```
+
+</details>
 
 1. **앱 연결 (한 번)** — 사용자 저장소에 `Dockerfile`과 `deploy.yaml`(포트 · 헬스체크 · 환경변수 · DB 여부)을 둬요.
 2. **이미지 빌드** — main에 머지하면 Jenkins `daisy-ci`가 테스트하고 커밋 해시로 태그한 이미지를 올린 뒤 서버에 알려요.
@@ -54,6 +63,16 @@ flowchart LR
 | 첫 배포 (v1.2.0, `2f79cb4`) | plan에서 네 환경 Terraform을 AI가 새로 생성(AI 호출 4회, 약 821원) → 웹에서 승인 → 병렬 apply |
 | 같은 버전 재배포 | 검증된 스크립트 재사용으로 **AI 호출 0회** → 네 환경 모두 성공, 헬스체크 200 |
 | 동일성 | `onprem` · `aws` · `gcp` · `azure`.unibloom.cloud의 `/version`이 모두 `2f79cb4` |
+
+<table>
+<tr>
+<td width="44%" valign="top"><img src="docs/readme/web-result.webp" alt="웹 — 배포 결과" /><br/><sub><b>웹</b> — 배포 결과 · 4개 환경 digest · 커밋 · 헬스체크 4/4 일치</sub></td>
+<td width="36%" valign="top"><img src="docs/readme/mac-approve.webp" alt="Mac 앱 — 승인" /><br/><sub><b>Mac 앱</b> — 환경별 plan을 보고 승인</sub></td>
+<td width="20%" valign="top"><img src="docs/readme/iphone-result.webp" alt="iPhone 앱 — 결과와 푸시 알림" /><br/><sub><b>iPhone 앱</b> — 결과 · 푸시 알림</sub></td>
+</tr>
+</table>
+
+더 많은 화면은 [조직 소개 페이지](https://github.com/Softbank-Hackathon-2026-Team-Daisy)에 있어요.
 
 | 환경 | 실행 위치 |
 |---|---|
